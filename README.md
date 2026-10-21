@@ -34,3 +34,9 @@ python3 scripts/check_bank.py   # 校验题库
 ## 说明
 
 题目依据公开标准和厂家手册整理，仅供学习参考；具体机床请以厂家说明书为准。
+
+## 安卓 APP
+
+- 下载最新版：https://github.com/awesome-jack/cnc-quiz/releases/latest/download/cnc-quiz.apk
+- `web/` 有改动并推送到 `main` 后，GitHub Actions（`.github/workflows/android.yml`）会用 Capacitor 自动打包新 APK 并发布到 Releases。
+- 所有版本使用同一签名（`android-signing/`），新版可直接覆盖安装，错题本和最高分不会丢。
