@@ -1,0 +1,6 @@
+{
+  "appId": "io.github.awesomejack.cncquiz",
+  "appName": "CNC数控闯关",
+  "webDir": "web",
+  "android": { "backgroundColor": "#0b1f3a" }
+}
