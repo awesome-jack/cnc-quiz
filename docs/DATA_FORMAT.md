@@ -16,3 +16,13 @@
 `drawing`：
 - `type: "lathe"`：`points` 为 `[z, 直径]` 轮廓点（右端面 z=0，向左为负），第三项 `{"r":R,"dir":"G02|G03"}` 表示圆弧段；`bore: true` 表示内孔轮廓；`callouts` 标注；`stock`、`origin`、`notes`
 - `type: "mill"`：`stock {w,h,t}`；`contour` 轮廓点（程序坐标），第三项 `{"r":R}` 为圆角；`holes [{x,y,d,label}]`；`circles [{x,y,r,label,dashed}]`；`origin`、`notes`
+
+## judges（判断题）
+`id` · `cat` 章节 · `q` 陈述句 · `answer` true/false · `explain` · `source`
+
+## multis（多选题）
+`id` · `cat` · `q` · `options` 5 个选项 · `answer` 正确下标数组（2–4 个） · `explain`（逐项 A✓/B✗） · `source`
+
+## typeins（口令速答·手输代码）
+`id` · `cat` · `system` · `q` 功能描述 · `answer` 可接受答案数组 · `hint` 提示 · `explain` · `source`
+判分时去空格、全角转半角、转大写，并把 G/M 后的前导 0 去掉（G01 = G1）。
