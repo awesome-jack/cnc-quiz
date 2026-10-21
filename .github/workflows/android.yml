@@ -2,7 +2,7 @@ name: Build Android APK
 on:
   push:
     branches: [main]
-    paths: ["web/**", "android-res/**", "capacitor.config.json", "package.json", ".github/workflows/android.yml"]
+    paths: ["web/**", "android-signing/**", "android-res/**", "capacitor.config.json", "package.json", ".github/workflows/android.yml"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-java@v5
         with: { distribution: temurin, java-version: "21" }
       - run: echo "ANDROID_HOME=$ANDROID_HOME"; ls $ANDROID_HOME/platforms | tail -3
+      - name: Fixed signing key (so updates install over the old app)
+        run: mkdir -p ~/.android && cp android-signing/debug.keystore ~/.android/debug.keystore
       - run: npm install
       - run: npx cap add android
       - name: App icons
