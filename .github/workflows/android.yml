@@ -29,6 +29,11 @@ jobs:
         run: |
           sed -i "s/versionCode 1$/versionCode ${{ github.run_number }}/" android/app/build.gradle
           sed -i "s/versionName \"1.0\"/versionName \"1.0.${{ github.run_number }}\"/" android/app/build.gradle
+      - name: Use fixed signing key
+        run: |
+          cat >> android/app/build.gradle <<'G'
+          android { signingConfigs { debug { storeFile rootProject.file('../android-signing/debug.keystore'); storePassword 'android'; keyAlias 'androiddebugkey'; keyPassword 'android' } } }
+          G
       - run: npx cap sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
       - run: cp android/app/build/outputs/apk/debug/app-debug.apk cnc-quiz.apk
