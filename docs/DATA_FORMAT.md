@@ -26,3 +26,7 @@
 ## typeins（口令速答·手输代码）
 `id` · `cat` · `system` · `q` 功能描述 · `answer` 可接受答案数组 · `hint` 提示 · `explain` · `source`
 判分时去空格、全角转半角、转大写，并把 G/M 后的前导 0 去掉（G01 = G1）。
+
+## lessons（课文）
+`cat` 章节 · `order` 学习顺序 · `title` · `minutes` · `goals[]` · `sections[{h, blocks[{t,x}]}]` · `pitfalls[]` · `mnemonic` · `sources[]`
+块类型 `t`：p（可含 **加粗**）、ul、ol、code、table（首行表头）、tip（老师傅提示）、warn（注意）。
